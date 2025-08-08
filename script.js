@@ -157,15 +157,16 @@ function i18nApply(){ document.querySelectorAll('[data-i18n]').forEach(el=>{ con
 // rail 3-at-a-time with swing animation
 function updateRailTransform(){
   const card = document.querySelector('.card');
-  const cardWidth = card ? (card.getBoundingClientRect().width + 16) : 280;
+  const cardWidth = card ? Math.round(card.getBoundingClientRect().width + 16) : 280;
   const step = 1; // show 1 big card at a time
   const maxPage = Math.max(0, Math.ceil(state.items.length / step) - 1);
-  state.railPage = Math.min(state.railPage, maxPage);
-  const offset = cardWidth * step * state.railPage * -1;
+  state.railPage = Math.max(0, Math.min(state.railPage, maxPage));
+  const offset = -1 * cardWidth * state.railPage;
   const rail = els.rail();
   if(rail){
-    const current = getComputedStyle(rail).transform.includes('matrix') ? new DOMMatrix(getComputedStyle(rail).transform).m41 : 0;
-    rail.style.setProperty('--from', `${current}px`);
+    const st = getComputedStyle(rail).transform;
+    const current = st && st.includes('matrix') ? new DOMMatrix(st).m41 : 0;
+    rail.style.setProperty('--from', isFinite(current) ? `${current}px` : '0px');
     rail.style.setProperty('--tx', `${offset}px`);
     rail.classList.remove('swing');
     void rail.offsetWidth; // reflow
