@@ -66,7 +66,7 @@ main, header, footer{position:relative;z-index:1}
 .card{scroll-snap-align:center;flex:0 0 clamp(320px,85vw,760px)}
 .card.nsfw img{filter:blur(14px);transform:scale(1.02)}
 /* swing move animation using CSS variables: --from, --tx */
-.rail.swing{animation:swingMove .7s cubic-bezier(.22,.8,.24,1.2)}
+.rail.swing{animation:swingMove .7s cubic-bezier(.22,.8,.24,1.2);animation-fill-mode:forwards}
 @keyframes swingMove{
   from{ transform: translateX(var(--from,0)) rotateZ(.4deg); }
   60%{ transform: translateX(calc(var(--tx) + 12px)) rotateZ(-.2deg); }
