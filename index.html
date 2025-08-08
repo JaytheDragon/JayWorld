@@ -70,7 +70,7 @@
 
         <div class="rail-wrap">
           <button class="rail-nav left" id="railPrev" aria-label="이전">‹</button>
-          <div class="rail" id="rail" aria-label="가로 스와이프 갤러리"></div>
+          <div class="rail" id="rail" aria-label="가로 스와이프 갤러리" role="list"></div>
           <button class="rail-nav right" id="railNext" aria-label="다음">›</button>
         </div>
 
@@ -122,8 +122,8 @@
 
     <!-- 미니게임 -->
     <dialog id="gameDialog">
-      <div class="game-wrap">
-        <canvas id="gameCanvas" width="720" height="480" aria-label="스페이스 인베이더"></canvas>
+        <div class="game-wrap">
+          <canvas id="gameCanvas" width="720" height="480" style="max-width:100%;height:auto" aria-label="Tetris"></canvas>
         <div class="game-ui">
             <div class="hud small">
               <span>점수: <strong id="hudScore">0</strong></span>
