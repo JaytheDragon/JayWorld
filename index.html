@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jay 제이 · OC 아트 아카이브</title>
+    <meta name="description" content="Jay 제이(@jellodrago)의 퍼리 OC 아트 아카이브. 날짜별로 정리된 갤러리와 부드러운 애니메이션." />
+
+    <link rel="icon" type="image/png" href="OC/일러스트211 (1).png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a class="logo" href="#top" aria-label="Jay 제이 홈">
+          <span class="logo-mark">J</span>
+          <span class="logo-text">Jay 제이</span>
+        </a>
+        <nav class="nav">
+          <a href="#intro">소개</a>
+          <a href="#gallery">갤러리</a>
+          <a href="#contact">연락처</a>
+          <button id="editToggle" class="btn subtle" title="편집 모드">편집</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="bubbles" aria-hidden="true"></div>
+
+      <section id="intro" class="section hero">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <h1 class="title">
+              <span class="fadeup">Hello, I’m</span>
+              <span class="accent fadeup" style="--i:1">Jay 제이</span>
+            </h1>
+            <p class="subtitle fadeup" style="--i:2">
+              The house always wins. Furry enjoyer · AI Agent Developer · Web Developer
+            </p>
+            <p class="subtitle fadeup" style="--i:3">
+              소비러 · A.I 에이전트 개발자 · 웹 개발자 · 그림 연습생
+            </p>
+            <div class="cta fadeup" style="--i:4">
+              <a class="btn primary" href="#gallery">갤러리로 이동</a>
+              <a class="btn outline" href="https://x.com/jellodrago" target="_blank" rel="noopener">X (트위터)</a>
+            </div>
+          </div>
+          <div class="hero-art fadeup" style="--i:5">
+            <img src="OC/제이 프사.jpg" alt="Jay 프로필 아트" />
+          </div>
+        </div>
+        <div class="scroll-cue" aria-hidden="true">
+          <span>스크롤</span>
+        </div>
+      </section>
+
+      <section id="gallery" class="section gallery">
+        <div class="section-header">
+          <h2>아트 갤러리</h2>
+          <p>날짜순으로 정리된 Jay의 OC 아트. 좌우 스와이프 또는 아래로 스크롤해 감상하세요.</p>
+        </div>
+
+        <div class="rail-wrap">
+          <div class="rail" id="rail" aria-label="가로 스와이프 갤러리"></div>
+        </div>
+
+        <div class="grid" id="grid" aria-live="polite"></div>
+
+        <div class="editbar" id="editBar" hidden>
+          <button class="btn small" id="addItemBtn">작품 추가</button>
+          <button class="btn small" id="exportBtn">JSON 내보내기</button>
+          <label class="import">
+            <input type="file" id="importInput" accept="application/json" hidden />
+            <span class="btn small">JSON 가져오기</span>
+          </label>
+          <span class="hint">편집 내용은 브라우저에 저장됩니다. 내보낸 파일을 저장소에 커밋하면 영구 반영됩니다.</span>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="section-header">
+          <h2>연락처</h2>
+          <p>협업 · 커미션 · 대화 모두 환영합니다.</p>
+        </div>
+        <div class="socials">
+          <a class="social" href="https://x.com/jellodrago" target="_blank" rel="noopener" aria-label="X 링크">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M18.244 2H21l-6.56 7.49L22 22h-6.828l-5.35-6.91L3.72 22H1l7.02-8.01L2 2h6.828l4.94 6.38L18.244 2Zm-1.2 18h1.863L7.03 4H5.167L17.044 20Z"/></svg>
+            <span>@jellodrago</span>
+          </a>
+          <a class="social" href="https://github.com/jellodrago" target="_blank" rel="noopener" aria-label="GitHub 링크">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.99 5.24.99 11.5c0 4.85 3.14 8.97 7.5 10.42.55.1.75-.24.75-.53v-1.86c-3.05.66-3.69-1.47-3.69-1.47-.5-1.28-1.22-1.62-1.22-1.62-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.68 2.58 1.2 3.21.92.1-.71.38-1.2.69-1.48-2.44-.28-5-1.22-5-5.44 0-1.2.43-2.17 1.13-2.94-.11-.28-.49-1.42.11-2.95 0 0 .93-.3 3.05 1.12a10.6 10.6 0 0 1 5.55 0c2.12-1.42 3.05-1.12 3.05-1.12.6 1.53.22 2.67.11 2.95.7.77 1.13 1.74 1.13 2.94 0 4.23-2.57 5.16-5.02 5.43.39.34.73 1 .73 2.02v2.99c0 .3.2.64.76.53 4.35-1.45 7.49-5.57 7.49-10.42C23.01 5.24 18.27.5 12 .5Z"/></svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="editDialog">
+      <form method="dialog" class="edit-form">
+        <h3>작품 정보 편집</h3>
+        <div class="fields">
+          <label>제목<input id="fTitle" type="text" /></label>
+          <label>작성자<input id="fAuthor" type="text" placeholder="예: Jay 제이" /></label>
+          <label>설명<textarea id="fDesc" rows="3"></textarea></label>
+          <label>날짜<input id="fDate" type="date" /></label>
+          <label>이미지 경로<input id="fImage" type="text" placeholder="예: OC/제이 프사.jpg" /></label>
+          <label>트위터 링크<input id="fLink" type="url" placeholder="https://x.com/..." /></label>
+        </div>
+        <menu>
+          <button class="btn" value="cancel">취소</button>
+          <button class="btn primary" value="default" id="saveItemBtn">저장</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Jay 제이 · All art © creators. Built with ♡</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>
+
+
