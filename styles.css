@@ -47,30 +47,48 @@ a:hover{ color:#e1d2ff; }
 .hero-art img{width:100%;border-radius:20px;box-shadow:var(--shadow);object-fit:cover}
 .scroll-cue{display:grid;place-items:center;margin-top:24px;color:var(--muted);opacity:.7;animation:bounce 2s infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-#bubbles{position:fixed;inset:0;overflow:hidden;z-index:-1}
+#bubbles{position:fixed;inset:0;overflow:hidden;z-index:0}
+main, header, footer{position:relative;z-index:1}
 .bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), rgba(255,255,255,.08) 60%, transparent 70%);filter:blur(0.5px);animation:float var(--dur) linear infinite;mix-blend-mode:screen}
 @keyframes float{to{transform:translateY(-120vh) translateX(var(--dx)) scale(var(--s))}}
 .section-header h2{margin:0 0 8px 0;font-size:clamp(24px,4.5vw,36px)}
 .section-header p{margin:0;color:var(--muted)}
-.rail-wrap{position:relative;margin-top:26px;overflow:auto hidden; -webkit-overflow-scrolling:touch}
-.rail{display:flex;gap:16px;padding:6px 2px 16px 2px;transition:transform .5s ease}
+.rail-wrap{position:relative;margin-top:26px;overflow:auto hidden; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory}
+.rail{display:flex;gap:16px;padding:6px 2px 16px 2px;will-change:transform}
+.card{scroll-snap-align:center;flex-basis:clamp(320px,80vw,1000px)}
+.card.nsfw img{filter:blur(14px);transform:scale(1.02)}
+/* swing move animation using CSS variables: --from, --tx */
+.rail.swing{animation:swingMove .7s cubic-bezier(.22,.8,.24,1.2)}
+@keyframes swingMove{
+  from{ transform: translateX(var(--from,0)) rotateZ(.4deg); }
+  60%{ transform: translateX(calc(var(--tx) + 12px)) rotateZ(-.2deg); }
+  80%{ transform: translateX(calc(var(--tx) - 6px)) rotateZ(.1deg); }
+  to{ transform: translateX(var(--tx)) rotateZ(0); }
+}
 .rail-nav{position:absolute;top:40%;transform:translateY(-50%);z-index:5;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:50%;width:38px;height:38px;display:grid;place-items:center}
 .rail-nav.left{left:6px}.rail-nav.right{right:6px}
+
+/* edge fades for interactivity hint */
+.rail-wrap::before,.rail-wrap::after{content:"";position:absolute;top:0;bottom:0;width:36px;pointer-events:none;z-index:4}
+.rail-wrap::before{left:0;background:linear-gradient(90deg, rgba(30,14,47,1), rgba(30,14,47,0))}
+.rail-wrap::after{right:0;background:linear-gradient(270deg, rgba(30,14,47,1), rgba(30,14,47,0))}
 .card{flex:0 0 clamp(220px,35vw,320px);background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;position:relative;transition:transform .25s ease, box-shadow .25s ease}
 .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.45)}
 .card .thumb{aspect-ratio:1/1;display:block;width:100%;object-fit:cover}
 .card .meta{padding:12px}
 .card .meta h3{margin:0 0 6px 0;font-size:1.05rem}
-.card .meta .small{color:var(--muted);font-size:.9rem}
+.card .meta .small{color:var(--muted);font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .chip{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);padding:6px 10px;border-radius:999px;font-size:.8rem}
 .card .edit-actions{position:absolute;top:10px;right:10px;display:flex;gap:6px}
 .grid{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.visit-twitter{margin-top:36px}
 .tile{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden}
 .tile img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .tile .meta{padding:10px}
 .tile.nsfw img{filter:blur(14px);transform:scale(1.02)}
-.tile .spoiler{position:absolute;top:10px;left:10px;right:10px;background:rgba(0,0,0,.65);color:#fff;padding:10px;border-radius:10px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
-.tile .spoiler button{margin-left:10px}
+.spoiler{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.45);border-radius:inherit;z-index:3}
+.spoiler .spoiler-inner{display:flex;gap:10px;align-items:center;justify-content:center;background:rgba(20,10,35,.9);border:1px solid rgba(255,255,255,.15);padding:10px 12px;border-radius:12px;color:#fff;font-weight:700}
+.spoiler .spoiler-inner button{margin-left:10px}
 .tile{position:relative}
 .editbar{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .hint{color:var(--muted);font-size:.9rem}
@@ -82,11 +100,11 @@ a:hover{ color:#e1d2ff; }
 @keyframes fadeup{to{opacity:1;transform:none}}
 @media (max-width: 860px){.hero-inner{grid-template-columns:1fr}.cta{flex-wrap:wrap}}
 
-/* subtle scrollbar */
-*{scrollbar-width:thin;scrollbar-color:#7e5bef33 transparent}
+/* subtle scrollbar (less distracting) */
+*{scrollbar-width:thin;scrollbar-color:#6b4fd133 transparent}
 ::-webkit-scrollbar{height:10px;width:10px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#7e5bef55,#7e5bef22);border-radius:8px}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#6b4fd133,#6b4fd11a);border-radius:8px}
 
 /* smoother scroll reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
@@ -99,5 +117,16 @@ a:hover{ color:#e1d2ff; }
 #gameDialog::backdrop{background:rgba(0,0,0,.55)}
 .game-wrap{position:relative}
 .game-ui{position:absolute;top:10px;right:10px}
+.game-ui .hud{display:flex;gap:10px;margin-bottom:8px}
+#gameQuit.btn{background:linear-gradient(135deg,#8c5bff,#6b4fd1);color:#fff;border:1px solid rgba(255,255,255,.15)}
+.game-overlay{position:absolute;inset:0;display:none;place-items:center;background:rgba(0,0,0,.5)}
+.game-overlay .panel{background:rgba(20,10,35,.9);border:1px solid rgba(255,255,255,.15);padding:16px 18px;border-radius:12px;box-shadow:var(--shadow);min-width:260px}
+.game-overlay .panel, .game-overlay .panel pre{color:#fff}
+.game-overlay .panel .title{font-weight:700;margin-bottom:8px}
+.keypad{position:absolute;left:10px;bottom:10px;display:grid;gap:6px}
+.keypad .row{display:flex;gap:6px}
+.keypad .btn{background:linear-gradient(135deg,#8c5bff,#6b4fd1);color:#fff;border:1px solid rgba(255,255,255,.15)}
+.keypad .btn.subtle{background:linear-gradient(135deg,#7c41ff,#6b4fd1);color:#f4edff}
+.keypad .btn:hover{filter:brightness(1.05)}
 
 

@@ -6,7 +6,7 @@
     <title>Jay 제이 · OC 아트 아카이브</title>
     <meta name="description" content="Jay 제이(@jellodrago)의 퍼리 OC 아트 아카이브. 날짜별로 정리된 갤러리와 부드러운 애니메이션." />
 
-    <link rel="icon" type="image/png" href="OC/일러스트211 (1).png" />
+    <link rel="icon" type="image/png" href="OC/41.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="hero-art fadeup" style="--i:5">
-            <img src="OC/제이 프사.jpg" alt="Jay 프로필 아트" />
+            <img src="OC/JayLeesh.png" alt="Jay 프로필 아트" />
           </div>
         </div>
         <div class="scroll-cue" aria-hidden="true">
@@ -125,13 +125,30 @@
       <div class="game-wrap">
         <canvas id="gameCanvas" width="720" height="480" aria-label="스페이스 인베이더"></canvas>
         <div class="game-ui">
-          <button class="btn small outline" id="gameQuit">나가기</button>
+            <div class="hud small">
+              <span>점수: <strong id="hudScore">0</strong></span>
+              <span>라인: <strong id="hudLines">0</strong></span>
+              <span>레벨: <strong id="hudLevel">0</strong></span>
+            </div>
+            <button class="btn small" id="gameQuit">나가기</button>
         </div>
+          <div class="keypad" aria-hidden="false">
+            <div class="row">
+              <button class="btn small subtle" id="kRotate">회전(↑)</button>
+              <button class="btn small subtle" id="kDrop">드롭(X)</button>
+            </div>
+            <div class="row">
+              <button class="btn small subtle" id="kLeft">←</button>
+              <button class="btn small subtle" id="kDown">↓</button>
+              <button class="btn small subtle" id="kRight">→</button>
+            </div>
+            <div class="hint small">조작: ← → 이동, ↓ 소프트드롭, ↑ 회전, X 퀵드롭</div>
+          </div>
       </div>
     </dialog>
 
     <footer class="site-footer">
-      <p>© <span id="year"></span> Jay 제이 · All art © creators. Built with ♡</p>
+      <p>© <span id="year"></span> Jay 제이 · all arts © with respective creators. made with love</p>
     </footer>
 
     <script src="script.js" defer></script>

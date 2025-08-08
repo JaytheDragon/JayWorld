@@ -1,12 +1,32 @@
 [
-  {"title":"프로필","author":"Jay 제이","description":"기본 프로필 이미지","date":"2025-08-01T09:00:00.000Z","image":"OC/제이 프사.jpg","link":"https://x.com/jellodrago"},
-  {"title":"유혹","author":"Jay 제이","description":"표정 연습","date":"2025-07-21T09:00:00.000Z","image":"OC/제이 유혹.png","link":"https://x.com/jellodrago"},
-  {"title":"흥미","author":"Jay 제이","description":"표정 연습","date":"2025-07-15T09:00:00.000Z","image":"OC/제이 흥미.png","link":"https://x.com/jellodrago"},
-  {"title":"음흉","author":"Jay 제이","description":"표정 연습","date":"2025-07-10T09:00:00.000Z","image":"OC/제이 음흉.png","link":"https://x.com/jellodrago"},
-  {"title":"제이 건배","author":"Jay 제이","description":"건배!","date":"2025-07-08T09:00:00.000Z","image":"OC/제이 건배.png","link":"https://x.com/jellodrago"},
-  {"title":"제이님 커미션","author":"Jay 제이","description":"커미션 작업","date":"2025-07-01T09:00:00.000Z","image":"OC/제이님 커미션.png","link":"https://x.com/jellodrago"},
-  {"title":"일러스트487(27.제이)","author":"Jay 제이","description":"일러스트","date":"2025-06-25T09:00:00.000Z","image":"OC/일러스트487(27.제이)/일러스트487(27.제이).png","link":"https://x.com/jellodrago"},
-  {"title":"일러스트514(불건전)","author":"Jay 제이","description":"NSFW","date":"2025-06-20T09:00:00.000Z","image":"OC/일러스트514(불건전)(27.제이)/일러스트514(불건전)(27.제이).png","link":"https://x.com/jellodrago","nsfw":true}
+  {"title":"프로필","author":"지인","description":"기본 프로필 이미지","date":"2025-08-01T09:00:00.000Z","image":"OC/JayLeesh.png","link":"https://x.com/jellodrago/status/1947047956265189541/photo/1"},
+  {"title":"제이 얼굴","author":"드마","description":"기본 이미지","date":"2025-08-01T09:00:00.000Z","image":"OC/제이 프사.jpg","link":"https://x.com/jellodrago/status/1939005452932784179/photo/1"},
+  {"title":"유혹","author":"미캐르","description":"표정 연습","date":"2025-07-29T09:00:00.000Z","image":"OC/제이 유혹.png","link":"https://x.com/jellodrago/status/1929385812354883940/photo/1"},
+  {"title":"흥미","author":"미캐르","description":"표정 연습","date":"2025-07-27T09:00:00.000Z","image":"OC/제이 흥미.png","link":"https://x.com/jellodrago/status/1929385812354883940/photo/1"},
+  {"title":"음흉","author":"미캐르","description":"표정 연습","date":"2025-07-25T09:00:00.000Z","image":"OC/제이 음흉.png","link":"https://x.com/jellodrago/status/1929385812354883940/photo/1"},
+  {"title":"제이 건배","author":"Jay 제이","description":"건배!","date":"2025-07-22T09:00:00.000Z","image":"OC/제이 건배.png","link":"https://x.com/jellodrago/status/1929385812354883940/photo/1"},
+  {"title":"제이 양복","author":"위루카","description":"커미션 작업","date":"2025-07-19T09:00:00.000Z","image":"OC/제이님 커미션.png","link":"https://x.com/jellodrago/status/1918482766422851925/photo/1"},
+  {"title":"제이 배개","author":"드마","description":"부끄러운 그림","date":"2025-07-19T09:00:00.000Z","image":"OC/20250730_214823.png","link":"https://x.com/jellodrago/status/1950540599561429046/photo/1"},
+  {"title":"제이 케모","author":"도무양","description":"부끄러운 그림","date":"2025-07-19T09:00:00.000Z","image":"OC/41.png","link":"https://x.com/jellodrago/status/1948174638972043306/photo/1"},
+
+  {"title":"움짤 007","author":"유니트","description":"움짤","date":"2025-07-17T09:00:00.000Z","image":"OC/제이_움_007.gif","link":"https://x.com/jellodrago/status/1927025567875977355/photo/1"},
+  {"title":"움짤 008","author":"유니트","description":"움짤","date":"2025-07-16T09:00:00.000Z","image":"OC/제이_움_008.gif","link":"https://x.com/jellodrago/status/1927025567875977355/photo/1"},
+  {"title":"프로필 대체","author":"Jay 제이","description":"또 다른 프로필","date":"2025-07-14T09:00:00.000Z","image":"OC/제이2.jpg","link":"https://x.com/jellodrago"},
+  {"title":"Pyroble","author":"Jay 제이","description":"만들어본 포켓몬","date":"2025-07-12T09:00:00.000Z","image":"OC/Pyroble-large.png","link":"https://x.com/jellodrago"},
+  {"title":"제이 능글","author":"고트","description":"배경","date":"2025-07-10T09:00:00.000Z","image":"OC/jay_BG (1) - Copy.png","link":"https://x.com/jellodrago/status/1882216408282792004/photo/1"},
+  {"title":"제이 움짤","author":"유니트","description":"움짤","date":"2025-07-08T09:00:00.000Z","image":"OC/Goc4JFfXsAA_Zv8.gif","link":"https://x.com/jellodrago/status/1938981937491911033/photo/1"},
+
+  {"title":"제이 총","author":"미스터한스","description":"신난제이","date":"2025-07-06T09:00:00.000Z","image":"OC/KakaoTalk_20240822_192734325.png","link":"https://x.com/jellodrago/status/1849284225721061773/photo/1"},
+  {"title":"스케치","author":"목새","description":"리퀘","date":"2025-07-01T09:00:00.000Z","image":"OC/목새 리퀘.jpg","link":"https://x.com/jellodrago"},
+  {"title":"테크퍼","author":"쿤","description":"사진","date":"2025-06-30T09:00:00.000Z","image":"OC/테크퍼16.jpg","link":"https://x.com/jellodrago/status/1875211618382196944/photo/1"},
+  {"title":"아바타","author":"콜라 김김","description":"X 프로필","date":"2025-06-29T09:00:00.000Z","image":"OC/@jellodrago.png","link":"https://x.com/jellodrago/status/1947048068886483387/photo/1"},
+  {"title":"퍼리1","author":"지인","description":"밈","date":"2025-06-28T09:00:00.000Z","image":"OC/1733274596917.png","link":"https://x.com/jellodrago/status/1864156595145326763/photo/1"},
+  {"title":"퍼리2","author":"지인","description":"밈밈","date":"2025-06-27T09:00:00.000Z","image":"OC/1733274597007.png","link":"https://x.com/jellodrago/status/1864156595145326763/photo/1"},
+  {"title":"서핑","author":"유우타타","description":"샷","date":"2025-06-27T09:00:00.000Z","image":"OC/1000023371 - Copy.jpg","link":"https://x.com/jellodrago/status/1912538290655240375/photo/1"},
+
+  {"title":"일러스트487(27.제이)","author":"테리","description":"일러스트","date":"2025-06-25T09:00:00.000Z","image":"OC/nsfw 일러스트487(27.제이)/일러스트487(27.제이).png","link":"https://x.com/jellodrago/status/1945665921097339357/photo/1","nsfw":true},
+  {"title":"일러스트514(불건전)","author":"테리","description":"NSFW","date":"2025-06-20T09:00:00.000Z","image":"OC/nsfw 일러스트514(불건전)(27.제이)/일러스트514(불건전)(27.제이).png","link":"https://x.com/jellodrago/status/1937382752552096123/photo/1","nsfw":true},
+  {"title":"Glitch","author":"Original: 드마, 편집: Jay 제이","description":"glitch","date":"2025-06-18T09:00:00.000Z","image":"OC/nsfw Glitch/glitch-image-1751249689.png","link":"https://x.com/jellodrago/status/1939706715467108727/photo/1","nsfw":true}
 ]
 
 
