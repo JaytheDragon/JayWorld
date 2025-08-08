@@ -1,8 +1,12 @@
 [
-  {"title":"프로필","author":"Jay 제이","description":"플레이스홀더. 저장소의 이미지를 사용합니다.","date":"2025-08-01T09:00:00.000Z","image":"OC/제이 프사.jpg","link":"https://x.com/jellodrago"},
-  {"title":"유혹","author":"Jay 제이","description":"플레이스홀더","date":"2025-07-21T09:00:00.000Z","image":"OC/제이 유혹.png","link":"https://x.com/jellodrago"},
-  {"title":"흥미","author":"Jay 제이","description":"플레이스홀더","date":"2025-07-15T09:00:00.000Z","image":"OC/제이 흥미.png","link":"https://x.com/jellodrago"},
-  {"title":"음흉","author":"Jay 제이","description":"플레이스홀더","date":"2025-07-10T09:00:00.000Z","image":"OC/제이 음흉.png","link":"https://x.com/jellodrago"}
+  {"title":"프로필","author":"Jay 제이","description":"기본 프로필 이미지","date":"2025-08-01T09:00:00.000Z","image":"OC/제이 프사.jpg","link":"https://x.com/jellodrago"},
+  {"title":"유혹","author":"Jay 제이","description":"표정 연습","date":"2025-07-21T09:00:00.000Z","image":"OC/제이 유혹.png","link":"https://x.com/jellodrago"},
+  {"title":"흥미","author":"Jay 제이","description":"표정 연습","date":"2025-07-15T09:00:00.000Z","image":"OC/제이 흥미.png","link":"https://x.com/jellodrago"},
+  {"title":"음흉","author":"Jay 제이","description":"표정 연습","date":"2025-07-10T09:00:00.000Z","image":"OC/제이 음흉.png","link":"https://x.com/jellodrago"},
+  {"title":"제이 건배","author":"Jay 제이","description":"건배!","date":"2025-07-08T09:00:00.000Z","image":"OC/제이 건배.png","link":"https://x.com/jellodrago"},
+  {"title":"제이님 커미션","author":"Jay 제이","description":"커미션 작업","date":"2025-07-01T09:00:00.000Z","image":"OC/제이님 커미션.png","link":"https://x.com/jellodrago"},
+  {"title":"일러스트487(27.제이)","author":"Jay 제이","description":"일러스트","date":"2025-06-25T09:00:00.000Z","image":"OC/일러스트487(27.제이)/일러스트487(27.제이).png","link":"https://x.com/jellodrago"},
+  {"title":"일러스트514(불건전)","author":"Jay 제이","description":"NSFW","date":"2025-06-20T09:00:00.000Z","image":"OC/일러스트514(불건전)(27.제이)/일러스트514(불건전)(27.제이).png","link":"https://x.com/jellodrago","nsfw":true}
 ]
 
 
