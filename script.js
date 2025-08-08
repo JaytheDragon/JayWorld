@@ -17,12 +17,10 @@ const els = {
 
 const STORAGE_KEY = 'jayworld.art.json';
 
-init();
+window.addEventListener('DOMContentLoaded', init);
 
 async function init(){
-  document.addEventListener('DOMContentLoaded', () => {
-    const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
-  });
+  const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
   makeBubbles();
   await loadData();
   renderAll();
@@ -31,15 +29,15 @@ async function init(){
 
 function bindUI(){
   // Language toggle
-  els.langKo().addEventListener('click', ()=>setLang('ko'));
-  els.langEn().addEventListener('click', ()=>setLang('en'));
+  els.langKo()?.addEventListener('click', ()=>setLang('ko'));
+  els.langEn()?.addEventListener('click', ()=>setLang('en'));
 
   // Rail navigation: 3-at-a-time
-  els.railPrev().addEventListener('click', ()=>{
+  els.railPrev()?.addEventListener('click', ()=>{
     state.railPage = Math.max(0, state.railPage - 1);
     updateRailTransform();
   });
-  els.railNext().addEventListener('click', ()=>{
+  els.railNext()?.addEventListener('click', ()=>{
     const maxPage = Math.ceil(state.items.length / 3) - 1;
     state.railPage = Math.min(maxPage, state.railPage + 1);
     updateRailTransform();
@@ -49,13 +47,13 @@ function bindUI(){
   setupReveals();
 
   // Game
-  els.gameBtn().addEventListener('click', openGame);
-  els.gameQuit().addEventListener('click', closeGame);
+  els.gameBtn()?.addEventListener('click', openGame);
+  els.gameQuit()?.addEventListener('click', closeGame);
 
   // Swipe support on rail
   let startX = null;
-  els.rail().addEventListener('pointerdown', e=>{ startX = e.clientX; });
-  els.rail().addEventListener('pointerup', e=>{
+  els.rail()?.addEventListener('pointerdown', e=>{ startX = e.clientX; });
+  els.rail()?.addEventListener('pointerup', e=>{
     if(startX == null) return; const dx = e.clientX - startX; startX = null;
     if(Math.abs(dx) < 30) return;
     if(dx < 0) els.railNext().click(); else els.railPrev().click();
@@ -64,6 +62,8 @@ function bindUI(){
 
 async function loadData(){
   const local = localStorage.getItem(STORAGE_KEY);
+  const savedLang = localStorage.getItem('jayworld.lang');
+  if(savedLang) state.lang = savedLang;
   if(local){ try{ state.items = JSON.parse(local); return; }catch{/* ignore */} }
   try{
     const res = await fetch('data/art.json', {cache:'no-cache'});
@@ -130,16 +130,24 @@ const I18N = {
   ko:{'nav.intro':'소개','nav.gallery':'갤러리','nav.sites':'웹사이트','nav.contact':'연락처','hero.title':'Jay 제이','hero.desc1':'하우스는 언제나 이긴다. 퍼리 애호가 · A.I 에이전트 개발자 · 웹 개발자','hero.desc2':'소비러 · A.I 에이전트 개발자 · 웹 개발자 · 그림 연습생','gallery.title':'아트 갤러리','gallery.subtitle':'날짜순으로 정리된 Jay의 OC 아트. 좌우 스와이프 또는 아래로 스크롤해 감상하세요.','gallery.visit':'트위터 방문하기','sites.title':'웹사이트','sites.subtitle':'제가 만든 프로젝트들을 만나보세요.','contact.title':'연락처','contact.subtitle':'협업 · 커미션 · 대화 모두 환영합니다.'},
   en:{'nav.intro':'Intro','nav.gallery':'Gallery','nav.sites':'Websites','nav.contact':'Contact','hero.title':'Jay','hero.desc1':'The house always wins. Furry enjoyer · AI Agent Developer · Web Developer','hero.desc2':'Consumer · AI Agent Dev · Web Dev · Art Learner','gallery.title':'Art Gallery','gallery.subtitle':'OC art sorted by date. Swipe horizontally or scroll vertically.','gallery.visit':'Visit Twitter','sites.title':'Websites','sites.subtitle':'Check out my projects.','contact.title':'Contact','contact.subtitle':'Open for collab, commissions, chat.'}
 };
-function setLang(code){ state.lang=code; i18nApply(); }
+function setLang(code){
+  state.lang=code;
+  localStorage.setItem('jayworld.lang', code);
+  i18nApply();
+}
 function i18nApply(){ document.querySelectorAll('[data-i18n]').forEach(el=>{ const key=el.getAttribute('data-i18n'); const t=(I18N[state.lang]||{})[key]; if(t) el.textContent=t; }); }
 
 // rail 3-at-a-time
 function updateRailTransform(){
   const card = document.querySelector('.card');
-  const cardWidth = card ? (card.clientWidth + 16) : 300;
+  // Fallback value ensures movement even before layout settles
+  const cardWidth = card ? (card.getBoundingClientRect().width + 16) : 280;
   const step = 3;
+  const maxPage = Math.max(0, Math.ceil(state.items.length / step) - 1);
+  state.railPage = Math.min(state.railPage, maxPage);
   const offset = cardWidth * step * state.railPage * -1;
-  if(els.rail()) els.rail().style.transform = `translateX(${offset}px)`;
+  const rail = els.rail();
+  if(rail){ rail.style.transform = `translateX(${offset}px)`; }
 }
 
 // NSFW blur with spoiler button
