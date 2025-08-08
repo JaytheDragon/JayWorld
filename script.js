@@ -42,6 +42,25 @@ function bindUI(){
     if(Math.abs(dx) < 30) return;
     if(dx < 0) pageRail(1); else pageRail(-1);
   });
+
+  // Prevent accidental link taps while swiping on mobile
+  const mobile = window.matchMedia('(max-width: 720px)').matches;
+  if(mobile){
+    let downPos = null;
+    const guard = (container)=>{
+      container?.addEventListener('pointerdown', e=>{ downPos = {x:e.clientX, y:e.clientY}; });
+      container?.addEventListener('click', e=>{
+        const a = e.target.closest('a');
+        if(!a || !downPos) return;
+        const dx = Math.abs((e.clientX||0) - downPos.x);
+        const dy = Math.abs((e.clientY||0) - downPos.y);
+        if(dx > 8 || dy > 8){ e.preventDefault(); e.stopPropagation(); }
+        downPos = null;
+      }, true);
+    };
+    guard(els.rail());
+    guard(els.grid());
+  }
 }
 
 async function loadData(){
@@ -72,7 +91,11 @@ function renderAll(){
 function renderRail(items){
   const el = els.rail(); if(!el) return;
   el.innerHTML = '';
-  items.forEach((item, idx) => el.append(createCard(item, idx)));
+  items.forEach((item, idx) => {
+    const card = createCard(item, idx);
+    card.setAttribute('role','listitem');
+    el.append(card);
+  });
 }
 
 function renderGrid(items){
@@ -176,10 +199,15 @@ function setupNSFW(){
 
 // scroll reveal
 function setupReveals(){
+  // On mobile, show sections immediately to avoid any chance of hidden content
+  if(window.matchMedia('(max-width: 720px)').matches){
+    document.querySelectorAll('.section').forEach(el=>{ el.classList.remove('reveal'); el.classList.add('visible'); });
+    return;
+  }
   const obs=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } else { e.target.classList.remove('visible'); } });
   },{threshold:0.12});
-  document.querySelectorAll('.section, .tile, .card').forEach(el=>{ el.classList.add('reveal'); obs.observe(el); });
+  document.querySelectorAll('.section').forEach(el=>{ el.classList.add('reveal'); obs.observe(el); });
 }
 
 // Mini game: Tetris with 15x15 mosaic reveal
@@ -188,6 +216,9 @@ function openGame(){ const d = els.gameDialog(); if(!d) return; if(typeof d.show
 function closeGame(){ const d=els.gameDialog(); if(game && game.stop) game.stop(); game=null; if(d){ if(typeof d.close==='function') d.close(); else d.open=false; } }
 function startGame(canvas, items){
   const ctx = canvas.getContext('2d');
+  // Responsive canvas size
+  function sizeCanvas(){ const ratio=720/480; const maxW=canvas.parentElement.clientWidth||720; const w=Math.min(720, maxW); canvas.width=w; canvas.height=Math.round(w/ratio); }
+  sizeCanvas(); window.addEventListener('resize', sizeCanvas);
   const W = canvas.width, H = canvas.height;
   // Tetris config
   const COLS = 10, ROWS = 20, CELL = Math.floor(Math.min(W*0.5/COLS, H*0.9/ROWS));
